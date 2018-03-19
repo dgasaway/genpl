@@ -1,0 +1,8 @@
+2012-03-01, genpl v1.0.0
+  * Initial release.
+
+2013-03-27, genpl v1.0.1
+  * Change shebang to use /usr/bin/env.
+
+<tbd>, genpl v1.1.0
+  * Move to Bitbucket and repackage.
