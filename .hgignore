@@ -2,3 +2,4 @@ syntax: regexp
 \.pyc$
 ^build$
 ^dist$
+^genpl.egg-info$

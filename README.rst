@@ -16,10 +16,10 @@ containing folder or below.  That is, suppose the following folder structure::
     /Music/Popular/Releases/Rush/2112
     
 Provide the path ``/Music`` to ``genpl``, and it can create a playlist at evey
-level of the path.  A playlist in folder '2112' will containing tracks from
-the album *2112*; a playlist in folder 'Rush' will containing all releases for
-the artist *Rush*; a playlist in folder 'Releases' will contain releases for
-all popular artists; a playlist in folder 'Popular' will contain music for all
+level of the path.  A playlist in folder '2112' will contain tracks from the
+album *2112*; a playlist in folder 'Rush' will contain all releases for the
+artist *Rush*; a playlist in folder 'Releases' will contain releases for all
+popular artists; a playlist in folder 'Popular' will contain music for all
 popular artists; finally, a playlist in folder 'Music' will contain all music.
 
 Usage
@@ -49,7 +49,7 @@ applies to the playlist created in the root.  Other playlist types than 'm3u8'
 are available through the ``--type`` argument.
 
 By default, ``genpl`` will use the path conventions for the platform where it is
-run (for example '/' path separators on Linux vs. '\' path separators on
+run (for example '/' path separators on Linux vs. '\\' path separators on
 Windows).  In cases where the files may be moved from one platfomr, it may be
 useful to force a certain convention with ``--posix`` or ``--windows``.  Note,
 however, that the author's experience suggests that POSIX contentions work with

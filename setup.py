@@ -13,12 +13,17 @@ setup(
     version=_version.__version__,
     description='A Python script for recursively creating audio playlists',
     long_description=long_description,
+    long_description_content_type='text/x-rst',
     author='David Gasaway',
     author_email='dave@gasaway.org',
     url='https://bitbucket.org/dgasaway/genpl',
     download_url='https://bitbucket.org/dgasaway/genpl/downloads/',
     license='GNU GPL v2',
-    scripts=['genpl'],
+    entry_points={
+        'console_scripts': [
+            'genpl=genpl:main',
+        ],
+    },
     python_requires='>=3',
     keywords='audio playlist',
     classifiers=[
