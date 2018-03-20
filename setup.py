@@ -1,6 +1,7 @@
 from setuptools import setup
 import os
 import io
+import _version
 
 # Read the long description from the README.
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -9,7 +10,7 @@ with io.open(os.path.join(basedir, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='genpl',
-    version=__version__,
+    version=_version.__version__,
     description='A Python script for recursively creating audio playlists',
     long_description=long_description,
     author='David Gasaway',

@@ -21,6 +21,7 @@ import ntpath
 from datetime import datetime, timezone
 import urllib.parse
 from argparse import ArgumentParser
+import _version
 
 # --------------------------------------------------------------------------------------------------
 def main():
@@ -30,7 +31,7 @@ def main():
 	parser = ArgumentParser(
 		description='Creates audio playlists by recursing a directory.',
 		fromfile_prefix_chars='@')
-	parser.add_argument('--version', action='version', version='%(prog)s 1.0')
+	parser.add_argument('--version', action='version', version='%(prog)s ' + __version__)
 	parser.add_argument('-v', '--verbose', 
 		help='verbose output (can be specified up to three times)', 
 		action='count', default=0)
@@ -38,7 +39,7 @@ def main():
 		help='simulate generation of playlists, but create no files',
 		action='store_true', default=False)
 	parser.add_argument('-t', '--type',
-		help='playlist format',
+		help='playlist format (default m3u8)',
 		action='store', choices=['m3u', 'm3u8', 'pls', 'xspf'], default='m3u8')
 	parser.add_argument('-e', '--extension',
 		help='file extension of audio files to add to generated playlists; can be specified more ' +
@@ -48,23 +49,8 @@ def main():
 
 	group = parser.add_argument_group(
 		title='playlist generation mode arguments',
-		description='Specifies where and playlists are generated during path recursion.  Single' +
-		'playlist mode creates a single playlist in the root that contains files in and below the ' +
-		'root.  Chained mode creates playlists in the root and every sub-directory containing ' +
-		'files in and below each respective directory.  For example, suppose a root "A", file ' +
-		'"A/B/C/1.ogg", file "A/B/D/2.ogg", and file "A/E/3.ogg".  Directory "C" will have a ' +
-		'playlist containing file 1; directory "D" will have a playlist containing file 2; ' +
-		'directory "B" will have a playlist containing files 1 and 2; directory "E" will have a ' +
-		'playlist containing file 3; directory "A" will have a playlist containing all three ' +
-		'files.  The unchained mode performs none of the chaining described earlier (in other ' +
-		'words, each file is contained in only one playlist), but still recurses the root and ' +
-		'creates playlists for matching files.  In chained and unchained modes, playlists are ' +
-		'named according to the filename argument.  If no argument is given, the playlists named ' +
-		'by the containing directory. Chained and unchained modes also have a "parent" variant ' +
-		'where the playlists are stored one directory higher, with the exception of the root ' +
-		'playlist (if any).  The playlists are named by the folder regardless of the playlist ' +
-		'filename argument to avoid filename conflicts.  However, the root playlist (if any) ' +
-		'will respect the filename argument.')
+		description='Specifies where and playlists are generated during path recursion.  See ' +
+		'README for more information.')
 	exgroup = group.add_mutually_exclusive_group()
 	exgroup.add_argument('-c', '--chained-playlists',
 		help='chained playlist generation mode (default)',
@@ -84,17 +70,13 @@ def main():
 
 	group = parser.add_argument_group(
 		title='path expansion arguments', 
-		description='Specifies the path expansion method.  Base mode allows the user to ' +
-		'specify an alternative root to all paths, probably most useful for absolute paths ' +
-		'where the files and/or playlists will be copied to another platform.  Generally ' +
-		'speaking, relative mode handles those cases better, provided playlist location does' +
-		'not change relative to the files.')
+		description='Specifies the path expansion method.  See README for more information.')
 	exgroup = group.add_mutually_exclusive_group()
 	exgroup.add_argument('-r', '--relative-paths',
 		help='use file paths relative to the playlist location (default)',
 		action='store_const', dest='path_exp', const='relative', default='relative')
 	exgroup.add_argument('-a', '--absolute-paths',
-		help='use absolute file paths; equivalent to -p absolute',
+		help='use absolute file paths',
 		action='store_const', dest='path_exp', const='absolute')
 	exgroup.add_argument('-b', '--base', 
 		help='quasi-absolute mode that replaces the root with a user-specified base',
@@ -103,10 +85,7 @@ def main():
 	group = parser.add_argument_group(
 		title='path format arguments',
 		description='Specifies the path conventions (e.g., slash direction) used for the ' +
-		'output file paths.  Can be useful for generating playlists to be used on another ' +
-		'platform, particularly if absolute paths are needed (in which case, the -b option ' +
-		'is probably also needed).  However, a lot of software works correctly with either ' +
-		'convention, even if not cross-platform.  Invalid if -a is used.')
+		'output file paths.  Not valid with -a.  See README for more information.')
 	exgroup = group.add_mutually_exclusive_group()
 	exgroup.add_argument('-s', '--system',
 		help='use system path conventions (default)',
@@ -334,4 +313,5 @@ def get_playlist_basefilename(path, args):
 
 # --------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
+	__version__ = _version.__version__
 	main()

@@ -6,3 +6,4 @@
 
 <tbd>, genpl v1.1.0
   * Move to Bitbucket and repackage.
+  * Add README and simplify --help output.
