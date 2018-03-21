@@ -21,7 +21,7 @@ import ntpath
 from datetime import datetime, timezone
 import urllib.parse
 from argparse import ArgumentParser
-import _version
+from genpl._version import __version__
 
 # --------------------------------------------------------------------------------------------------
 def main():
@@ -31,7 +31,7 @@ def main():
     parser = ArgumentParser(
         description='Creates audio playlists by recursing a directory.',
         fromfile_prefix_chars='@')
-    parser.add_argument('--version', action='version', version='%(prog)s ' + _version.__version__)
+    parser.add_argument('--version', action='version', version='%(prog)s ' + __version__)
     parser.add_argument('-v', '--verbose',
         help='verbose output (can be specified up to three times)',
         action='count', default=0)

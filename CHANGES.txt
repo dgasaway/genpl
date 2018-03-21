@@ -4,6 +4,6 @@
 2013-03-27, genpl v1.0.1
   * Change shebang to use /usr/bin/env.
 
-<tbd>, genpl v1.1.0
+2018-03-20, genpl v1.1.0
   * Move to Bitbucket and repackage.
   * Add README and simplify --help output.

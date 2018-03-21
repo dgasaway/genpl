@@ -50,7 +50,7 @@ are available through the ``--type`` argument.
 
 By default, ``genpl`` will use the path conventions for the platform where it is
 run (for example '/' path separators on Linux vs. '\\' path separators on
-Windows).  In cases where the files may be moved from one platfomr, it may be
+Windows).  In cases where the files may be moved from one platform, it may be
 useful to force a certain convention with ``--posix`` or ``--windows``.  Note,
 however, that the author's experience suggests that POSIX contentions work with
 most platforms and software, including Windows; your milage may vary.
