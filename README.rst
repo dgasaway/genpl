@@ -42,17 +42,17 @@ subfolders, ``--unchained-playlists``.  Playlists are named the same as the
 parent folder, e.g., in the example above, folder '2112' would contain a
 playlist named '2112.m3u8'.  Use the ``--parent`` argument to create the
 playlists one folder higher, instead; e.g., in the example above the folder
-'Rush' would contain a playlist for for each release, rather than a playlist
-in each subfolder.  A fixed playlist filename can be provided to the
-``--filename`` argument; however, in ``--parent`` mode, the filename only
-applies to the playlist created in the root.  Other playlist types than 'm3u8'
-are available through the ``--type`` argument.
+'Rush' would contain a playlist for each release, rather than a playlist in each
+subfolder.  A fixed playlist filename can be provided to the ``--filename``
+argument; however, in ``--parent`` mode, the filename only applies to the
+playlist created in the root.  Other playlist types than 'm3u8' are available
+through the ``--type`` argument.
 
 By default, ``genpl`` will use the path conventions for the platform where it is
 run (for example '/' path separators on Linux vs. '\\' path separators on
-Windows).  In cases where the files may be moved from one platform, it may be
+Windows).  In cases where the files may be moved to another platform, it may be
 useful to force a certain convention with ``--posix`` or ``--windows``.  Note,
-however, that the author's experience suggests that POSIX contentions work with
+however, that the author's experience suggests that POSIX conventions work with
 most platforms and software, including Windows; your milage may vary.
 
 By default, ``genpl`` creates playlists using paths relative to the playlist
