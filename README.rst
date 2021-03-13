@@ -82,7 +82,8 @@ convention options are not valid with ``--absolute-paths``.
 Installation
 ============
 
-.. warning::
+Warning
+-------
 
     Some Linux distributions discourage installation of system-level python
     packages using ``pip`` or ``setup.py install``, due to collisions with the
@@ -108,14 +109,14 @@ Installing from source
 ----------------------
 
 Either download a release tarball from the
-`Downloads <https://bitbucket.org/dgasaway/genpl/downloads/>`_ page, and
+`Releases <https://github.com/dgasaway/genpl/releases>`_ page, and
 unpack::
 
     $ tar zxvf genpl-1.1.0.tar.gz
 
-Or get the latest source from the Mercurial repository::
+Or get the latest source from the git repository::
 
-    $ hg clone https://bitbucket.org/dgasaway/genpl
+    $ git clone https://github.com/dgasaway/genpl.git
 
 If you have access to install software in the system packages, then it can be
 installed as administrator::

@@ -16,8 +16,8 @@ setup(
     long_description_content_type='text/x-rst',
     author='David Gasaway',
     author_email='dave@gasaway.org',
-    url='https://bitbucket.org/dgasaway/genpl',
-    download_url='https://bitbucket.org/dgasaway/genpl/downloads/',
+    url='https://github.com/dgasaway/genpl',
+    download_url='https://github.com/dgasaway/genpl/releases',
     license='GNU GPL v2',
     py_modules=['genpl/genpl', 'genpl/_version'],
     entry_points={
